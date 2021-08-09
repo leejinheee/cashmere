@@ -1,0 +1,209 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+/*
+font-family: 'Great Vibes', cursive;
+font-family: 'Poppins', sans-serif;
+*/
+
+
+/*common CSS*/
+*{box-sizing: border-box; font-family: 'Poppins', sans-serif;} 
+html, body{margin: 0; padding: 0;}
+header, section, article, main, aside, nav, footer{display: block;}
+header:after, section:after, article:after, main:after, aside:after, nav:after, footer:after{content: ""; display: block; clear: both;}
+h1, h2, h3, h4, h5, h6, p{margin: 0;}
+ul, ol{margin: 0; padding: 0; list-style: none;}
+a{text-decoration: none;}
+
+
+
+
+
+/**********header**********/
+/*
+header{height: 75px; background-color: rgba(255,255,255,0.75);}
+header .wrap{width: 1200px; height: 100%; padding: 0 10px; margin: 0 auto; background: #ddd; display: grid;align-items: center;grid-template-columns: repeat(3, 1fr);}
+header .wrap .logo{}
+header .wrap .logo a{}
+header .wrap .logo a img{display: block;}
+
+header .wrap nav{}
+header .wrap nav ul{display: flex; justify-content: space-around;}
+header .wrap nav ul li{margin: 0 10px;}
+header .wrap nav ul li a{display: block; font-size: 14px; color:#565656;position: relative; line-height: 75px;}
+header .wrap nav ul li:hover a{color:#662021;}
+header .wrap nav ul li a:after{position: absolute; content: ""; display: block; width: 100%;height: 4px; background-color: #662021;bottom: 0;left: 0;}
+
+header .wrap .sns{display: flex; justify-content: flex-end;}
+header .wrap .sns li{}
+header .wrap .sns li a{}
+header .wrap .sns li a img{display: block; height: 24px; padding-left: 10px;}
+header .wrap .sns li:nth-child(1) a img{padding-left: 0;}
+*/
+
+
+
+/**********header**********/
+/*header{height: 75px; background-color: rgba(255,255,255,0.75);position: sticky; top: 0; z-index: 2;} 수정 전*/
+header{height: 75px; width: 100%; background-color: rgba(255,255,255,0.75);position: fixed;z-index: 1;}
+header .wrap{width: 1200px; height: 100%; padding: 0 10px; margin: 0 auto; /*background: #ddd;*/ display: flex; justify-content: space-between; align-items: center;}
+header .wrap .logo{}
+header .wrap .logo a{}
+header .wrap .logo a img{display: block;}
+
+header .wrap nav{}
+header .wrap nav ul{display: flex;}
+header .wrap nav ul li{margin: 0 30px;}
+header .wrap nav ul li a{display: block; font-size: 14px; color:#565656;position: relative; line-height: 75px;}
+header .wrap nav ul li a:after{position: absolute; content: ""; display: block; width: 0%;height: 4px; background-color: #662021;bottom: 0;left: 0; transition: width 0.5s;}
+header .wrap nav ul li:hover a{color:#662021;}
+header .wrap nav ul li:hover a:after{width: 100%;}
+
+header .wrap .sns{display: flex;width: 150px;  justify-content: flex-end; }
+header .wrap .sns li{}
+header .wrap .sns li a{}
+header .wrap .sns li a img{display: block; height: 24px; padding-left: 10px;}
+header .wrap .sns li:nth-child(1) a img{padding-left: 0;}
+
+
+
+/**********main**********/
+/* main{height: 900px; position: relative; top:-75px; } 수정 전*/
+main{/*height: 900px;*/ position: relative;}
+main .pagerSlider{width: 100%; height: 900px; margin: 0 auto; /*position: absolute;  top: 0; left: 0;*/ background: #faf; overflow: hidden;}
+main .pagerSlider input[type="radio"]{display: none; position: absolute;}
+main .pagerSlider input:nth-child(1){left: 0;}
+main .pagerSlider input:nth-child(2){left: 20px;}
+main .pagerSlider input:nth-child(3){left: 40px;}
+main .pagerSlider input:nth-child(4){left: 60px;}
+main .pagerSlider input:nth-child(5){left: 80px;}
+
+main .pagerSlider .pager{position: absolute; bottom: 50px; left: 50%; transform: translateX(-50%); display: flex; z-index: 1;}
+main .pagerSlider .pager label{width: 32px; height: 32px;cursor: pointer; display: flex; align-items: center; justify-content: center; color: #fff; transition: width 0.5s, height 0.5s, border 0.5s;}
+main .pagerSlider .pager label span{display: block; width: 6px; height: 6px; background-color: #fff;border-radius: 50%;}
+
+main .pagerSlider input#slide1:checked ~ .pager label:nth-child(1){width: 32px; height: 32px; border: 1px solid #fff; border-radius: 50%;}
+main .pagerSlider input#slide2:checked ~ .pager label:nth-child(2){width: 32px; height: 32px; border: 1px solid #fff; border-radius: 50%;}
+main .pagerSlider input#slide3:checked ~ .pager label:nth-child(3){width: 32px; height: 32px; border: 1px solid #fff; border-radius: 50%;}
+main .pagerSlider input#slide4:checked ~ .pager label:nth-child(4){width: 32px; height: 32px; border: 1px solid #fff; border-radius: 50%;}
+main .pagerSlider input#slide5:checked ~ .pager label:nth-child(5){width: 32px; height: 32px; border: 1px solid #fff; border-radius: 50%;}
+
+main .pagerSlider .frame{width: 500%; height: 100%; background: #ffa; transition: margin-left 1s;}
+main .pagerSlider .frame .slide{width: calc(100% / 5); height: 100%; background-color: #faa; float: left; background-size: cover; background-position: 50% 50%; }
+
+main .pagerSlider .frame .slide_1{background-image: url(../img/main_04.jpg);}
+main .pagerSlider .frame .slide_2{background-image: url(../img/main_05.jpg);}
+main .pagerSlider .frame .slide_3{background-image: url(../img/main_06.jpg);}
+main .pagerSlider .frame .slide_4{background-image: url(../img/main_07.jpg);}
+main .pagerSlider .frame .slide_5{background-image: url(../img/main_08.jpg);}
+
+main .pagerSlider input#slide1:checked ~ .frame{margin-left: 0%;}
+main .pagerSlider input#slide2:checked ~ .frame{margin-left: -100%;}
+main .pagerSlider input#slide3:checked ~ .frame{margin-left: -200%;}
+main .pagerSlider input#slide4:checked ~ .frame{margin-left: -300%;}
+main .pagerSlider input#slide5:checked ~ .frame{margin-left: -400%;}
+
+
+main .wrap{position: absolute;  width: 100%; height: 100%; top: 0; left: 0; /*background: #faf;*/}
+main .wrap .mainTitle{display: flex; justify-content: flex-end; width:1200px; margin: 0 auto; height: 100%; align-items: flex-end; padding-bottom: 200px; padding-right: 90px;}
+main .wrap .mainTitle h1{font-size: 48px; color:#373735;}
+
+
+/*
+main .wrap{height: 100%; width: 1200px; margin: 0 auto;}
+main .wrap .mainTitle{display: flex; justify-content: flex-end;height: 100%; align-items: flex-end; padding-bottom: 200px;}
+main .wrap .mainTitle h1{font-size: 48px; color:#373735;}
+*/
+
+
+
+/**********#cont1**********/
+#cont1{background-image: url(../img/naturebg-1.png), url(../img/product.png);
+background-attachment: fixed; background-repeat: no-repeat; background-position: 0 50%, 100% 50%; background-size: 25%; border-top: 1px solid #eee;}
+#cont1 .intro{width: 1200px; margin: 0 auto; /*background: #eee;*/ padding: 80px 10px 60px 10px; border-bottom: 1px solid #aaa;}
+#cont1 .intro h2{text-align: center; font-size: 36px;font-family: 'Great Vibes', cursive; padding-bottom: 40px;}
+#cont1 .intro .cont_part{display: flex; justify-content: space-between;}
+#cont1 .intro .cont_part .box{width: calc(100% / 3 - 10px); /*background: #faf;*/}
+#cont1 .intro .cont_part .box h3{font-size: 18px; color:#662021; text-align: center; font-weight: normal; line-height: 40px;}
+#cont1 .intro .cont_part .box .imgPart{height: 200px; background-size: cover; background-position: 50% 50%; margin: 30px 0 40px 0;}
+#cont1 .intro .cont_part .box:nth-child(1) .imgPart{background-image: url(../img/intro_01.jpg);}
+#cont1 .intro .cont_part .box:nth-child(2) .imgPart{background-image: url(../img/intro_02.jpg);}
+#cont1 .intro .cont_part .box:nth-child(3) .imgPart{background-image: url(../img/intro_03.jpg);}
+#cont1 .intro .cont_part .box p{font-size: 14px; color: #373735; font-weight: normal;line-height: 19px;}
+
+#cont1 .story{width: 1200px;  margin: 0 auto; /*background: #eee;*/ padding: 80px 10px 60px 10px;}
+#cont1 .story h2{text-align: center; font-size: 36px;font-family: 'Great Vibes', cursive; padding-bottom: 40px;}
+#cont1 .story .cont_part{width: 100%; /*background: #faf;*/ display: flex; justify-content: space-between; flex-wrap: wrap;}
+#cont1 .story .cont_part div{width: calc(100% / 2 - 10px);  /*background: #afa;*/ height: 240px; margin-bottom: 20px;}
+#cont1 .story .cont_part .imgPart{}
+#cont1 .story .cont_part .imgPart img{width: 100%; height: 100%; background-size: cover; background-position: 50% 50%; /*background-color: red;*/}
+
+#cont1 .story .cont_part .txtPart{}
+#cont1 .story .cont_part .txtPart h3{font-size: 18px; font-weight: normal; color: #662021; line-height: 40px; padding-bottom: 40px;}
+#cont1 .story .cont_part .txtPart p{font-size: 14px;  color: #373735; line-height: 19px;}
+
+
+
+/**********#banner1**********/
+#banner1{height: 280px; background-image: url(../img/cashmere_bg_01.jpg); background-size: cover; background-position: 50% 50%;    background-attachment: fixed; text-align: center; color: #fff; padding: 40px 0;}
+#banner1 h3{font-size: 36px; font-family: 'Great Vibes', cursive;line-height: 60px; }
+#banner1 p{font-size: 18px; line-height: 40px; padding:20px 0 40px 0}
+#banner1 a{display: block; margin: 0 auto; width: 180px; font-size: 18px; height: 40px; line-height: 38px; border: 1px solid #fff; color:#fff; text-align: center; 
+    transition: color 0.5s, background-color 0.5s;}
+#banner1 a:hover{background-color: #fff; color:#373735;}
+
+
+
+/**********#cont2**********/
+#cont2{
+    background-image: url(../img/naturebg-2.png), url(../img/cs-bg.png);
+    background-size: 24%, 22%;
+    background-repeat: no-repeat;
+    background-position: 0% 50%, 100% 50%;
+    background-attachment: fixed;
+}
+#cont2 .journal{width: 1200px; margin: 0 auto;  padding: 80px 10px 60px 10px; border-bottom: 1px solid #aaa;}
+#cont2 .journal h2{text-align: center; font-size: 36px;font-family: 'Great Vibes', cursive; padding-bottom: 40px;}
+#cont2 .journal .cont_part{display: flex;justify-content: space-between;}
+#cont2 .journal .cont_part .box{width: calc(100% / 4 - 10px); text-align: center;}
+#cont2 .journal .cont_part .box img{height: 90px; background-size: cover; background-position: 50% 50%;}
+#cont2 .journal .cont_part .box h3{font-size: 18px; color: #662021; padding: 20px 0; line-height: 40px; font-weight: normal;}
+#cont2 .journal .cont_part .box .txt_part{font-size: 14px; color:#373735; text-align: left;}
+#cont2 .journal .cont_part .box .txt_part h4{line-height: 40px;}
+#cont2 .journal .cont_part .box .txt_part p{line-height: 19px;}
+
+
+#cont2 .stores{width: 1200px; margin: 0 auto;  padding: 80px 10px 60px 10px;}
+#cont2 .stores h2{text-align: center; font-size: 36px;font-family: 'Great Vibes', cursive; padding-bottom: 40px;}
+
+#cont2 .stores .cont_part{width: 100%; display: flex; flex-wrap: wrap; justify-content: space-between;}
+#cont2 .stores .cont_part .box{height: 360px;  background-size: 100% auto; background-position: 50% 50%;  transition: background-size 0.5s; margin-bottom: 20px;  display: flex; justify-content: center; align-items: center;}
+#cont2 .stores .cont_part .box:nth-child(1){width: 100%; background-image: url(../img/store_women.jpg);}
+#cont2 .stores .cont_part .box:nth-child(2){width: calc((100% / 12) * 5 - 10px); background-image: url(../img/store_men.jpg);}
+#cont2 .stores .cont_part .box:nth-child(3){width: calc((100% / 12) * 7 - 10px); background-image: url(../img/store_kids.jpg);}
+#cont2 .stores .cont_part .box:hover {background-size: 120% auto;}
+
+#cont2 .stores .cont_part a{display: block; width: 180px; height: 50px; line-height: 50px; color:#fff; background-color:#373735; text-align: center; transition: background-color 0.5s;}
+
+#cont2 .stores .cont_part a:hover{background-color: #662021;}
+
+
+
+/**********footer**********/
+footer{background: #d9d9d9; height: 200px; text-align: center; color: #373735; font-size: 14px;}
+footer .wrap{width: 1200px; height: 100%; padding: 40px 10px; margin: 0 auto; text-align: center;}
+footer .wrap .top_space{display: flex; justify-content: space-between; align-items: center; padding-bottom: 20px;}
+footer .wrap .top_space .logo{width: 110px;}
+footer .wrap .top_space .logo img{display: block;}
+
+footer .wrap .top_space .f_info{display: flex;}
+footer .wrap .top_space .f_info li{padding: 0 10px;}
+footer .wrap .top_space .f_info li a{color: #373735; }
+footer .wrap .top_space .f_info li a:hover{color: #662021; }
+
+footer .wrap .top_space .sns{display: flex; justify-content: flex-end; }
+footer .wrap .top_space .sns li{}
+footer .wrap .top_space .sns li a{}
+footer .wrap .top_space .sns li a img{display: block; height: 30px; padding-left: 10px;}
+footer .wrap .top_space .sns li:nth-child(1) a img{padding-left: 0;}
